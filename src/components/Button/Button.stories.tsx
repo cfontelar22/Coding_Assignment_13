@@ -31,7 +31,7 @@ export const ViewButton: Story<ButtonProps> = (args) => <Button {...args} />;
 ViewButton.args = {
   text: 'View',
   backgroundColor: '#F39C12',
-  hoverBackgroundColor: '#FFA500',
+  hoverBackgroundColor: '#FFA501',
 };
 ViewButton.storyName = 'View';
 ViewButton.play = async ({ canvasElement }) => {
