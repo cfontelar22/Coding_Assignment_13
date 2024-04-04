@@ -21,7 +21,5 @@ jobs:
               npm-version: '10.3.0'
           - name: Install Dependencies
             run: npm install
-          - name: Install Jest Globally
-            run: npm install -g jest
           - name: Run Tests
             run: jest
