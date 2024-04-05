@@ -1,6 +1,6 @@
 import { shouldHandleClick, handleClickLogic, hoverEffectLogic } from './Card.lib';
 
-describe('Card Library', () => {
+describe('Card Component Validations', () => {
   it('should return true when the card is not disabled', () => {
     expect(shouldHandleClick(false)).toBe(true);
   });
