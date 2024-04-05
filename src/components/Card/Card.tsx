@@ -20,6 +20,7 @@ const StyledCard = styled.div<{ disabled?: boolean; backgroundColor?: string }>`
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
   opacity: ${({ disabled }) => (disabled ? 0.5 : 1)};
   transition: transform 0.2s;
+  pointer-events: ${({ disabled }) => (disabled ? 'none' : 'auto')}; // Add this line
 
   &:hover {
     transform: ${({ disabled }) => (disabled ? 'none' : 'scale(1.02)')};

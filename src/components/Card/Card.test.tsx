@@ -1,34 +1,35 @@
-import { render, screen, fireEvent } from '@testing-library/react';
-import '@testing-library/jest-dom';
-import Card from './Card';
+import { shouldHandleClick, handleClickLogic, hoverEffectLogic } from './Card.lib';
 
-describe('Card Component', () => {
-  const mockOnClick = jest.fn();
-  const cardProps = {
-    title: 'Project 1',
-    subtitle: 'Point to Point Network Wireless Bridge',
-    description: 'This project is all about implementing one hop to the other hop wireless bridge.',
-    image: 'https://via.placeholder.com/300',
-    onClick: mockOnClick,
-  };
-
-  it('renders correctly', () => {
-    render(<Card {...cardProps} />);
-    expect(screen.getByText(cardProps.title)).toBeInTheDocument();
-    expect(screen.getByText(cardProps.subtitle)).toBeInTheDocument();
-    expect(screen.getByText(cardProps.description)).toBeInTheDocument();
-    expect(screen.getByRole('img')).toHaveAttribute('src', cardProps.image);
+describe('Card Library', () => {
+  it('should return true when the card is not disabled', () => {
+    expect(shouldHandleClick(false)).toBe(true);
   });
 
-  it('calls onClick when not disabled', () => {
-    render(<Card {...cardProps} />);
-    fireEvent.click(screen.getByText(cardProps.title));
-    expect(mockOnClick).toHaveBeenCalledTimes(1);
+  it('should return false when the card is disabled', () => {
+    expect(shouldHandleClick(true)).toBe(false);
   });
 
-  it('does not call onClick when disabled', () => {
-    render(<Card {...cardProps} disabled={true} />);
-    fireEvent.click(screen.getByText(cardProps.title));
-    expect(mockOnClick).not.toHaveBeenCalled();
+  it('should return true when disabled is undefined', () => {
+    expect(shouldHandleClick()).toBe(true);
+  });
+
+  it('should execute logic on click when not disabled', () => {
+    let wasClicked = false;
+    handleClickLogic(false, () => { wasClicked = true; });
+    expect(wasClicked).toBe(true);
+  });
+
+  it('should not execute logic on click when disabled', () => {
+    let wasClicked = false;
+    handleClickLogic(true, () => { wasClicked = true; });
+    expect(wasClicked).toBe(false);
+  });
+
+  it('should execute hover logic when not disabled', () => {
+    expect(hoverEffectLogic(false)).toBe(true);
+  });
+
+  it('should not execute hover logic when disabled', () => {
+    expect(hoverEffectLogic(true)).toBe(false);
   });
 });

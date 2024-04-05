@@ -1,3 +1,4 @@
+import '@testing-library/jest-dom';
 import React, { useState } from 'react';
 import InputField from './components/InputField/InputField.tsx'; 
 import Button from './components/Button/Button.tsx';
