@@ -13,8 +13,12 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v2
       with:
-        node-version: '16' # Ensure compatibility with Storybook
+        node-version: '16'
     - name: Install dependencies
       run: npm install
-    - name: Run custom CI test script
-      run: npm run ci:test
+    - name: Install Playwright browsers
+      run: npx playwright install
+    - name: Run Jest tests
+      run: npm run test:jest
+    - name: Run Storybook tests
+      run: npm run test:storybook
