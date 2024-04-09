@@ -25,6 +25,7 @@
   "test:openHandles": "jest --detectOpenHandles",
   "test": "npm run test:jest && npm run test:storybook",
   "ci:test": "npm run storybook & sleep 30 && npm run test"
+  },
 
   "eslintConfig": {
     "extends": [
@@ -33,6 +34,7 @@
       "plugin:storybook/recommended"
     ]
   },
+
   "browserslist": {
     "production": [
       ">0.2%",

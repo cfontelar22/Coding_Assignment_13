@@ -1,5 +1,4 @@
 
-
 // Function to determine if the Card should respond to events
 export const shouldHandleClick = (disabled?: boolean): boolean => {
   return !disabled;
