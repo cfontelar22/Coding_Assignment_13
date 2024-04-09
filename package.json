@@ -17,7 +17,7 @@
   "scripts": {
     "start": "PORT=8083 react-scripts start",
     "build": "react-scripts build",
-    "test jest": "jest",
+    "test:jest": "jest",
     "test:storybook": "test-storybook",
     "eject": "react-scripts eject",
     "storybook": "storybook dev -p 6006",
@@ -26,6 +26,7 @@
     "test": "npm run test:jest && npm run test:storybook",
     "ci:test": "npm run storybook & sleep 30 && npm run test"
   },
+  
   "eslintConfig": {
     "extends": [
       "react-app",
