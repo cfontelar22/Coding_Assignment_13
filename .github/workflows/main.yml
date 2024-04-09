@@ -18,6 +18,8 @@ jobs:
       run: npm install
     - name: Install Playwright browsers
       run: npx playwright install
+    - name: Build Storybook
+      run: npm run build-storybook
     - name: Run Jest tests
       run: npm run test:jest
     - name: Run Storybook tests
