@@ -1,7 +1,7 @@
-FROM node:14-slim
+FROM node:16-slim
 
 # Navigate to the site directory
-WORKDIR /fontelar_christma_coding_assignment12/fontelar_christma_site
+WORKDIR /fontelar_christma_coding_assignment12/fontelar_christma_ui_garden
 
 # Copy package.json and package-lock.json to the working directory
 COPY package*.json .
