@@ -9,13 +9,13 @@ export default {
   tags: ['autodocs'],
   argTypes: {
     disabled: { control: 'boolean' },
-    backgroundColor: { control: 'color' }, 
+    backgroundColor: { control: 'color' },
     onClick: { action: 'clicked' },
     onMouseEnter: { action: 'hovered' },
   },
 } as Meta<InputFieldProps>;
 
-export const Default: Story<InputFieldProps> = (args) => <InputField {...args} />;
+export const Default: Story<InputFieldProps> = (args) => React.createElement(InputField, args);
 Default.args = {
   placeholder: 'Keyword Search',
 };
@@ -27,9 +27,9 @@ Default.play = async ({ args, canvasElement }) => {
   await userEvent.type(input, 'Test');
 };
 
-export const Disabled: Story<InputFieldProps> = (args) => <InputField {...args} />;
+export const Disabled: Story<InputFieldProps> = (args) => React.createElement(InputField, {...args, disabled: true});
 Disabled.args = {
   placeholder: 'Keyword Search',
   disabled: true,
-  backgroundColor: '#f5f5f5', 
+  backgroundColor: '#f5f5f5',
 };

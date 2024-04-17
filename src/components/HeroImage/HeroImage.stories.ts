@@ -19,7 +19,7 @@ export default {
   },
 } as Meta<HeroImageProps>;
 
-export const Default: Story<HeroImageProps> = (args) => <HeroImage {...args} />;
+export const Default: Story<HeroImageProps> = (args) => React.createElement(HeroImage, args);
 Default.args = {
   imageUrl: 'https://images.unsplash.com/photo-1543269865-cbf427effbad',
   title: 'WELCOME TO MY PORTFOLIO',
@@ -28,24 +28,14 @@ Default.args = {
 };
 Default.play = async ({ args, canvasElement }) => {
   const canvas = within(canvasElement);
-
-  // Find the title element.
   const titleElement = await canvas.getByText(args.title);
-
-  // Simulate hovering over the title element.
   await userEvent.hover(titleElement);
-  // Optionally wait to visualize the hover state in Storybook.
   await new Promise((r) => setTimeout(r, 500));
-
-  // Simulate clicking the title element.
   await userEvent.click(titleElement);
-
-  // Hero image has interactive elements
   await userEvent.tab();
-
 };
 
-export const Disabled: Story<HeroImageProps> = (args) => <HeroImage {...args} />;
+export const Disabled: Story<HeroImageProps> = (args) => React.createElement(HeroImage, {...args, disabled: true});
 Disabled.args = {
   imageUrl: 'https://images.unsplash.com/photo-1543269865-cbf427effbad',
   title: 'WELCOME TO MY PORTFOLIO',
@@ -53,4 +43,3 @@ Disabled.args = {
   description: 'Explore my projects and experience.',
   disabled: true,
 };
-

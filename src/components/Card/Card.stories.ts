@@ -14,7 +14,7 @@ export default {
   },
 } as Meta<CardProps>;
 
-export const Default: Story<CardProps> = (args) => <Card {...args} />;
+export const Default: Story<CardProps> = (args) => React.createElement(Card, args);
 Default.args = {
   title: 'Project 1',
   subtitle: 'Point to Point Network Wireless Bridge',
@@ -24,19 +24,13 @@ Default.args = {
 
 Default.play = async ({ args, canvasElement }) => {
   const canvas = within(canvasElement);
-  // Assuming 'Project 1' is unique enough to identify the card
   const card = await canvas.getByText('Project 1');
-
-  // Hover over the card
   await userEvent.hover(card);
-  // Wait for the hover state to visually confirm in Storybook
   await new Promise((r) => setTimeout(r, 500));
-
-  // Click the card
   await userEvent.click(card);
-}
+};
 
-export const Disabled: Story<CardProps> = (args) => <Card {...args} />;
+export const Disabled: Story<CardProps> = (args) => React.createElement(Card, {...args, disabled: true});
 Disabled.args = {
   title: 'Project 1',
   subtitle: 'Point to Point Network Wireless Bridge',

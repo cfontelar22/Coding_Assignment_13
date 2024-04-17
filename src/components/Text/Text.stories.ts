@@ -1,7 +1,7 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
 import { within, userEvent } from '@storybook/testing-library';
-import Text, { TextProps } from './Text'; 
+import Text, { TextProps } from './Text';
 
 export default {
   title: 'Components/Text',
@@ -9,29 +9,25 @@ export default {
   tags: ['autodocs'],
   argTypes: {
     text: { control: 'text' },
-    color: { control: 'color' }, 
-    disabled: { control: 'boolean' }, 
+    color: { control: 'color' },
+    disabled: { control: 'boolean' },
   },
 } as Meta<TextProps>;
 
-export const Default: Story<TextProps> = (args) => (
-  <Text {...args} />
-);
+export const Default: Story<TextProps> = (args) => React.createElement(Text, args);
 Default.args = {
   text: 'As a network engineer, I specialize in designing, implementing, and managing computer networks.',
   color: 'blue',
 };
 Default.play = async ({ args, canvasElement }) => {
   const canvas = within(canvasElement);
-  // Ensure that args.text has a value before using it.
   const textToFind = args.text || 'default text if undefined';
   const textElement = await canvas.getByText(textToFind);
   await userEvent.hover(textElement);
   await userEvent.click(textElement);
 };
-export const Disabled: Story<TextProps> = (args) => (
-  <Text {...args} />
-);
+
+export const Disabled: Story<TextProps> = (args) => React.createElement(Text, {...args, disabled: true});
 Disabled.args = {
   text: 'As a network engineer, I specialize in designing, implementing, and managing computer networks.',
   color: 'gray',

@@ -15,11 +15,10 @@ export default {
   },
 } as Meta<RadioProps>;
 
-export const Default: Story<RadioProps> = (args) => <RadioButton {...args} />;
+export const Default: Story<RadioProps> = (args) => React.createElement(RadioButton, args);
 Default.args = {
   label: 'Visa',
   checked: false,
- 
 };
 Default.play = async ({ args, canvasElement }) => {
   const canvas = within(canvasElement);
@@ -27,7 +26,7 @@ Default.play = async ({ args, canvasElement }) => {
   await userEvent.click(radioButton);
 };
 
-export const Disabled: Story<RadioProps> = (args) => <RadioButton {...args} />;
+export const Disabled: Story<RadioProps> = (args) => React.createElement(RadioButton, {...args, disabled: true});
 Disabled.args = {
   label: 'Avion',
   disabled: true,

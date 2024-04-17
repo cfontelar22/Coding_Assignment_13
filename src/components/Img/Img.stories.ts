@@ -13,12 +13,12 @@ export default {
   tags: ['autodocs'],
   argTypes: {
     onClick: { action: 'clicked' },
-    disabled: { control: 'boolean' }, 
+    disabled: { control: 'boolean' },
     backgroundColor: { control: 'color' },
   },
 } as Meta<ImgPropsWithDisabled>;
 
-export const Default: Story<ImgPropsWithDisabled> = (args) => <Img {...args} />;
+export const Default: Story<ImgPropsWithDisabled> = (args) => React.createElement(Img, args);
 Default.args = {
   src: 'https://via.placeholder.com/100',
   alt: 'Logo Sample',
@@ -34,11 +34,10 @@ Default.play = async ({ args, canvasElement }) => {
   await userEvent.unhover(image);
 };
 
-export const Disabled: Story<ImgPropsWithDisabled> = (args) => <Img {...args} />;
+export const Disabled: Story<ImgPropsWithDisabled> = (args) => React.createElement(Img, {...args, disabled: true});
 Disabled.args = {
   src: 'https://via.placeholder.com/100',
   alt: 'Logo Sample',
   className: 'image',
-  disabled: true, 
+  disabled: true,
 };
-// No play function for Disabled as it should not be interactive.
