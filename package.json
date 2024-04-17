@@ -10,23 +10,23 @@
     "punycode": "^2.3.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.22.3",
     "react-scripts": "^5.0.1",
     "styled-components": "^6.1.8",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-  "start": "PORT=8083 react-scripts start",
-  "build": "react-scripts build",
-  "test:jest": "jest",
-  "test:storybook": "test-storybook",
-  "eject": "react-scripts eject",
-  "storybook": "storybook dev -p 6006",
-  "build-storybook": "build-storybook -o ./storybook-static",
-  "test:openHandles": "jest --detectOpenHandles",
-  "test": "npm run test:jest && npm run test:storybook",
-  "ci:test": "npm run storybook & sleep 30 && npm run test"
+    "start": "PORT=8083 react-scripts start",
+    "build": "react-scripts build",
+    "test:jest": "jest",
+    "test:storybook": "test-storybook",
+    "eject": "react-scripts eject",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "build-storybook -o ./storybook-static",
+    "test:openHandles": "jest --detectOpenHandles",
+    "test": "npm run test:jest && npm run test:storybook",
+    "ci:test": "npm run storybook & sleep 30 && npm run test"
   },
-
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -34,7 +34,6 @@
       "plugin:storybook/recommended"
     ]
   },
-
   "browserslist": {
     "production": [
       ">0.2%",
