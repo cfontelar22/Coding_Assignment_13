@@ -16,12 +16,12 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "PORT=8083 react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test:jest": "jest",
     "test:storybook": "test-storybook",
     "eject": "react-scripts eject",
-    "storybook": "storybook dev -p 6006",
+    "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook -o ./storybook-static",
     "test:openHandles": "jest --detectOpenHandles",
     "test": "npm run test:jest && npm run test:storybook",
@@ -77,6 +77,6 @@
     "webpack": "^5.90.3"
   },
   "engines": {
-    "node": "16.x"
+    "node": "18.x"
   }
 }
