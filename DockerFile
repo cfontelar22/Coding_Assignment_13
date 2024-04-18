@@ -16,23 +16,10 @@ COPY package*.json ./
 # Install dependencies
 RUN npm install
 
-# Copy the rest of the application to container
-COPY . .
-
-# Build the application
-RUN npm run build
-
-# Stage 2: Production environment
-FROM nginx:alpine
-
-# Copy build output from previous stage to nginx directory
-COPY --from=builder /fontelar_christma_coding_assignment12/fontelar_christma_site/build /usr/share/nginx/html
-
 # Expose port 8083 to allow outside access /  Expose the port the app runs on
 EXPOSE 8083
 
 # Set the PORT environment variable
 ENV PORT=8083
 
-# Command to start nginx server when container starts
-CMD ["nginx", "-g", "daemon off;"]
+
